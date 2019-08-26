@@ -28,15 +28,19 @@
 
             <!-- Column for game functions -->
             <div class="col-6 border border-secondary">
+
                 <!-- Top row for clue about the State -->
                 <div class="row"></div>
                     <div>
-                        <h5 class="text-center">Fact about this state!</h5>
+                        <h5 class="text-center">Clue about this state!</h5>
+                        <!-- element used to display the fact about the state chosen -->
                         <p class="text-center" id="stateFact"></p>
                     </div>
 
                 <!-- Row for the tiles of the letters, unknown as _ and correct guessed letters -->
                 <div class="row"></div>
+                    <!-- Element used for the place holder for each letter of the state, changing based on the players guess -->
+                    <h4 class="text-center" id="selectedState"></h4>
                 <!-- Row for number of attemps lefts -->
                 <div class="row"></div>
                 <!-- Row for incorrect letter choices -->
