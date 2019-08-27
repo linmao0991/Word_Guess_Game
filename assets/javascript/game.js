@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
     //checkRepeatLetters function global variable
     var checkRepeatFuncVar = "";
     //Array for states correctly guessed, array used to not repeat correctly guessed states.
-    var statesGussed = [];
+    var statesGuessed = [];
     //Game wins
     var gameWins = 0;
     //Game losses
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
     // Object to store US States in an array and facts in an array.
     var gameData = {
         // Array containing the states to randomly choose from.
-        allStates: ["OHIO", "CALIFORNIA", "TEXAS", "FLORIDA","HAWAII", "NEW YORK", "GEORGIA", "NEW HAMPSHIRE", "ALABAMA","ASLAKA","ARIZONA"],
+        allStates: ["OHIO", "CALIFORNIA", "TEXAS", "FLORIDA","HAWAII", "NEW YORK", "GEORGIA", "NEW HAMPSHIRE", "ALABAMA","ALASKA","ARIZONA"],
         // Facts array, facts index matches the states index.
         stateFact: ["First to have traffic lights.", 
                     "This State's flag has a bear on it.", 
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function(){
             totalAttempts = 0;
             correctInput = 0;
             stateLetterCount = 0;
-            statesGussed = [];
+            statesGuessed = [];
             gameWins = 0;
             gameLoss =0;
             document.getElementById("stateFact").innerHTML = "";
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
             //randomly selects a state and converts into an array and store into variable selectedState.
             currentState = (gameData.allStates[gameDataIndex]);
             //While loops untill currentState is not in the array stateGussed
-            while (statesGussed.indexOf(currentState) > 0){
+            while (statesGuessed.indexOf(currentState) > 0){
                 gameDataIndex = Math.floor(Math.random() * gameData.allStates.length);
                 currentState = (gameData.allStates[gameDataIndex]);
             }
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 //Increments gameWins by 1
                 gameWins++;
                 //Adds the corretly gussed state into the stateGussed array
-                statesGussed.push(currentState);
+                statesGuessed.push(currentState);
                 // Updates html with the curren gameWins value.
                 document.getElementById("gameWins").innerHTML = gameWins;
                 //Alerts user that they correctly gussed the state and diplays the string value of currentState
@@ -207,6 +207,22 @@ document.addEventListener('DOMContentLoaded', function(){
                 //Calls function resetGame.
                 gameFunctions.resetGame();
             }
+
+            //Check if the array length of statesGuessed equals allStates, if true the user guessed all the states.
+            if (statesGuessed.length == gameData.allStates.length){
+                alert("We reached the end! Lets see the final score!");
+                alert("Games Won: "+gameWins+ " / Games Lost: "+gameLoss);
+                //If else statement to alert the user of winning or losing, then calling the newGame function to clear all the scores and start a new game.
+                if(gameWins > gameLoss){
+                    alert("You Won!");
+                    gameFunctions.newGame();
+                }
+                else {
+                    alert("You Lost!");
+                    gameFunctions.newGame();
+                }
+            }
+
             //checks to see if total attemps reached 0.
             if (totalAttempts == 0){
                 // Increments gameLoss by 1
