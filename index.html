@@ -15,39 +15,47 @@
 
         <!-- Score board row -->
         <div class="row border border-secondary">
-
+            <!-- Game Wins -->
+            <div class="col">
+                <h3>Wins: <span id="gameWins"></span></h3>
+            </div>
+            <!-- Game Losses -->
+            <div class="col">
+                <h3>Losses: <span id="gameLosses"></span></h3>
+            </div>
         </div>
 
         <!-- Row for the Game -->
-        <div class="row border border-secondary">
+        <div class="row border border-secondary text-center">
 
             <!-- Column for images of the state -->
-            <div class="col-6 border border-secondary ">
+            <!-- <div class="col-4 border border-secondary ">
 
-            </div>
+            </div> -->
 
             <!-- Column for game functions -->
-            <div class="col-6 border border-secondary">
+            <div class="col border border-secondary">
 
                 <!-- Top row for clue about the State -->
-                <div class="row"></div>
+                <div class="row">
                     <div>
-                        <h5 class="text-center">Clue about this state!</h5>
+                        <h5 class="">Clue about this state!</h5>
                         <!-- element used to display the fact about the state chosen -->
-                        <p class="text-center" id="stateFact"></p>
+                        <p class="" id="stateFact"></p>
                     </div>
-
+                </div>
                 <!-- Row for number of attemps lefts -->
                 <div class="row">
-                    <p>Number of attemps left:</p> <p id="attempsLeft"></p>
+                    <p>Number of attemps left: </p><span id="attempsLeft"></span>
                 </div>
 
                 <!-- Row for the tiles of the letters, unknown as _ and correct guessed letters -->
-                <div class="row"></div>
+                <div class="row">
                     <!-- Element used for the place holder for each letter of the state, changing based on the players guess -->
-                    <h4 class="text-center" id="selectedState"></h4>
+                    <h4 class="" id="selectedState"></h4>
+                </div>
                 <!-- Row for incorrect letter choices -->
-                <div class="row text-center">
+                <div class="row">
                     <p id="incorrectLetters"></p>
                 </div>
             </div>
