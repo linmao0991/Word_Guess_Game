@@ -4,7 +4,7 @@ var selectedState = "";
 //stores the fact that corresponds with the randomly selected state.
 var selectedFact = "";
 //Array for incorrect letter guesses
-var incorrectGuessArray = [];
+var guessArray = [];
 //stores the number of attempts based on the letter count of each state.
 var totalAttempts = 0;
 var gameWins = 0;
@@ -55,8 +55,8 @@ var gameFunctions = {
             else{ //If False
             //creates a <span> element and sets letterHolder to it.
             letterHolder = document.createElement("SPAN");
-            //sets attribute id of created element to value of the index.
-            letterHolder.setAttribute("id", selectedState[i]);
+            //sets attribute class of created element to value of the index.
+            letterHolder.setAttribute("class", selectedState[i]);
             //sets arttribute id of data-letter with value equal to value of the current index
             letterHolder.setAttribute("data-letter", selectedState[i]);
             //creates text and stores it into letterDash
@@ -82,10 +82,10 @@ var gameFunctions = {
             alert("Your input was not a letter, please try again!");
         }
 
-        //If function to check is key pressed is NOT in selectedState array AND is in array validLetters AND NOT in incorrectGuessArray
-        if (!selectedState.includes(storedLetter) && gameData.validLetters.includes(storedLetter) && !incorrectGuessArray.includes(storedLetter)){
-            //Adds incorrect letter to the incorrectGuessArray. Stops this if condition to run if the incorrect letter was already guessed.
-            incorrectGuessArray.push(storedLetter);
+        //If function to check is key pressed is NOT in selectedState array AND is in array validLetters AND NOT in guessArray
+        if (!selectedState.includes(storedLetter) && gameData.validLetters.includes(storedLetter) && !guessArray.includes(storedLetter)){
+            //Adds incorrect letter to the guessArray. Stops this if condition to run if the incorrect letter was already guessed.
+            guessArray.push(storedLetter);
             //creates a span element and stores it into incorrectHolder
             incorrectHolder = document.createElement("SPAN");
             //creates text of stored letter with a space at the end and stors it into incorrectLetter.
@@ -96,13 +96,31 @@ var gameFunctions = {
             document.getElementById("incorrectLetters").appendChild(incorrectHolder);
             //Decrease totalAttempts by 1
             totalAttempts--;
-            console.log(incorrectGuessArray);
+            console.log(guessArray);
         }
         //If function to check if letter is in the US State array selectedState
-        if (selectedState.includes(storedLetter)){
-            console.log("correct letter");
-        }
+        if (selectedState.includes(storedLetter) && !guessArray.includes(storedLetter)){
+            //Adds correct letter to guessArray.
+            guessArray.push(storedLetter);
+            //declaring local variables
+            var repeatLetter = 0;
 
+            //function to count number of repeating letters in State name.
+            function checkRepeatLetters(selectedState){
+                return selectedState == storedLetter;
+            }
+
+            //Stores the number of repeated letters in State name
+            repeatLetter = selectedState.filter(checkRepeatLetters).length;
+            console.log(selectedState.filter(checkRepeatLetters).length);
+
+            //For loop to go through letter place holder and replace place holder with correct letter input.
+            for (var i = 0; i < repeatLetter; i++){
+                console.log("repeat: "+repeatLetter);
+                console.log("run #:"+i+" value of: "+i);
+                document.getElementsByClassName(storedLetter)[i].innerHTML = storedLetter+" ";
+            }
+        }
     }
 
 
@@ -122,7 +140,6 @@ document.getElementById("attempsLeft").innerHTML = totalAttempts;
 
 console.log(selectedState);
 console.log(selectedFact);
-console.log(totalAttempts);
-console.log(incorrectGuessArray);
+console.log("Guess Array" +guessArray);
 console.log("total attemps" +totalAttempts);
 });
