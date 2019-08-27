@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <title>Guess the State</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <body>
-    <div class="jumbotron text-center" id="myJumbotron">
+    <div class="jumbotron text-center text-white myTextShadow" id="myJumbotron">
         <h1>Guess that State!</h1>
     </div>
     <div class="container">
 
         <!-- Score board row -->
-        <div class="row border border-secondary">
+        <div class="row border border-secondary rounded bg-primary">
             <!-- Game Wins -->
             <div class="col">
-                <h3 class="text-center">Wins: <span id="gameWins"></span></h3>
+                <h3 class="text-center text-white myTextShadow">Wins: <span id="gameWins"></span></h3>
             </div>
             <!-- Game Losses -->
             <div class="col">
-                <h3  class="text-center">Losses: <span id="gameLosses"></span></h3>
+                <h3  class="text-center text-white myTextShadow">Losses: <span id="gameLosses"></span></h3>
             </div>
         </div>
 
@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="text-center">
-                            <h2>Clue about this state!</h2>
+                            <h2>Fact about this state!</h2>
                             <!-- element used to display the fact about the state chosen -->
                             <p id="stateFact"></p>
                         </div>

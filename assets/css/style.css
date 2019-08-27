@@ -1,0 +1,10 @@
+#myJumbotron {
+    background-image: url(../img/america.jpg);
+    background-size: cover;
+    text-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 5px black;
+}
+
+.myTextShadow {
+    text-shadow: 1px 1px 2px black;
+}
