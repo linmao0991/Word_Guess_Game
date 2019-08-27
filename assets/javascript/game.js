@@ -160,13 +160,13 @@ document.addEventListener('DOMContentLoaded', function(){
                 alert("Your input was not a letter, please try again!");
             }
 
-            //If function to check is key pressed is NOT in selectedState array AND is in array validLetters AND NOT in guessArray
+            //If function to check if key pressed is NOT in selectedState array AND is in array validLetters AND NOT in guessArray
             if (!selectedState.includes(storedLetter) && gameData.validLetters.includes(storedLetter) && !guessArray.includes(storedLetter)){
                 //Adds incorrect letter to the guessArray. Stops this if condition to run if the incorrect letter was already guessed.
                 guessArray.push(storedLetter);
                 //creates a span element and stores it into incorrectHolder
                 incorrectHolder = document.createElement("SPAN");
-                //creates text of stored letter with a space at the end and stors it into incorrectLetter.
+                //creates text of stored letter with a space at the end and stores it into incorrectLetter.
                 incorrectLetter = document.createTextNode(storedLetter+" ");
                 //adds text in incorrectLetter into the span created in incorrectHolder
                 incorrectHolder.appendChild(incorrectLetter);
@@ -187,15 +187,16 @@ document.addEventListener('DOMContentLoaded', function(){
                 repeatLetter = selectedState.filter(gameFunctions.checkRepeatLetters).length;
                 //For loop to go through letter place holder and replace place holder with correct letter input.
                 for (var i = 0; i < repeatLetter; i++){
-                    //Increments correct input to represent the number of correct letter inputs
-                    correctInput++;
                     //Updates the html letter place holder with the correctly gussed letter.
                     document.getElementsByClassName(storedLetter)[i].innerHTML = storedLetter+" ";
+                     //Increments correct input to represent the number of correct letter inputs
+                    correctInput++;
                 }
             }
 
-            //checks if the number of correct inputs matches the letter count of the current state
-            if (correctInput == stateLetterCount){
+           setTimeout(function(){
+               //checks if the number of correct inputs matches the letter count of the current state
+                if (correctInput == stateLetterCount){
                 //Increments gameWins by 1
                 gameWins++;
                 //Adds the corretly gussed state into the stateGussed array
@@ -207,6 +208,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 //Calls function resetGame.
                 gameFunctions.resetGame();
             }
+           },500);
+            
 
             //Check if the array length of statesGuessed equals allStates, if true the user guessed all the states.
             if (statesGuessed.length == gameData.allStates.length){

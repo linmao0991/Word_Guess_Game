@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Guess the State</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
 <body>
-    <div class="jumbotron">
+    <div class="jumbotron text-center" id="myJumbotron">
         <h1>Guess that State!</h1>
     </div>
     <div class="container">
@@ -17,49 +17,55 @@
         <div class="row border border-secondary">
             <!-- Game Wins -->
             <div class="col">
-                <h3>Wins: <span id="gameWins"></span></h3>
+                <h3 class="text-center">Wins: <span id="gameWins"></span></h3>
             </div>
             <!-- Game Losses -->
             <div class="col">
-                <h3>Losses: <span id="gameLosses"></span></h3>
+                <h3  class="text-center">Losses: <span id="gameLosses"></span></h3>
             </div>
         </div>
 
         <!-- Row for the Game -->
-        <div class="row border border-secondary text-center">
-
-            <!-- Column for images of the state -->
-            <!-- <div class="col-4 border border-secondary ">
-
-            </div> -->
-
-            <!-- Column for game functions -->
-            <div class="col border border-secondary">
-
+        <div class="row border border-secondary">
+            <div class="col">
                 <!-- Top row for clue about the State -->
                 <div class="row">
-                    <div>
-                        <h5 class="">Clue about this state!</h5>
-                        <!-- element used to display the fact about the state chosen -->
-                        <p class="" id="stateFact"></p>
+                    <div class="col">
+                        <div class="text-center">
+                            <h2>Clue about this state!</h2>
+                            <!-- element used to display the fact about the state chosen -->
+                            <p id="stateFact"></p>
+                        </div>
                     </div>
                 </div>
                 <!-- Row for number of attemps lefts -->
                 <div class="row">
-                    <p>Number of attemps left: </p><span id="attempsLeft"></span>
+                    <div class="col">
+                        <div class="text-center">
+                            <p >Number of attemps left: <span id="attempsLeft"></span></p>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Row for the tiles of the letters, unknown as _ and correct guessed letters -->
                 <div class="row">
-                    <!-- Element used for the place holder for each letter of the state, changing based on the players guess -->
-                    <h4 class="" id="selectedState"></h4>
+                    <div class="col">
+                        <div class="text-center">
+                            <!-- Element used for the place holder for each letter of the state, changing based on the players guess -->
+                            <h4 class="" id="selectedState"></h4>
+                        </div>
+                    </div>
                 </div>
                 <!-- Row for incorrect letter choices -->
                 <div class="row">
-                    <p id="incorrectLetters"></p>
+                    <div class="col">
+                        <div class="text-center">
+                            <p id="incorrectLetters"></p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </div>
     <script src="assets/javascript/game.js"></script>
