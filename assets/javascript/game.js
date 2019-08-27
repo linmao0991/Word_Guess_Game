@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 // Updates html with the curren gameWins value.
                 document.getElementById("gameWins").innerHTML = gameWins;
                 //Alerts user that they correctly gussed the state and diplays the string value of currentState
+                gameFunctions.playEagleScream();
                 alert("Correct! The state was: "+currentState);
                 //Calls function resetGame.
                 gameFunctions.resetGame();
@@ -240,6 +241,10 @@ document.addEventListener('DOMContentLoaded', function(){
         checkRepeatLetters: function(arrayToCheck){
             return arrayToCheck == checkRepeatFuncVar;
         },
+        //Function plays the audo in the audio element with the id eagleScream
+        playEagleScream: function(){
+            document.getElementById("eagleScream").play();
+        }
 
     }
     //Run gameFunctions and display game information
